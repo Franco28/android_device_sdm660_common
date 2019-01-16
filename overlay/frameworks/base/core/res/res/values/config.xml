@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+#
+# Copyright (C) 2018 The Xiaomi-SDM660 Project (DU)
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+#
+# This file sets variables that control the way modules are built
+# thorughout the system. It should not be used to conditionally
+# disable makefiles (the proper mechanism to control what gets
+# included in a build is to use PRODUCT_PACKAGES in a product
+# definition file).
+#
+-->
+
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Allow automatic adjusting of the screen brightness while dozing in low power state. -->
@@ -19,6 +44,42 @@
     <!-- The duration (in milliseconds) of the activity open/close and fragment open/close animations. -->
     <integer name="config_activityShortDur">75</integer>
     <integer name="config_activityDefaultDur">110</integer>
+
+	<!-- Operating volatage for bluetooth controller. 0 by default-->
+	<integer translatable="false" name="config_bluetooth_operating_voltage_mv">3300</integer>
+
+	<!-- The duration (in milliseconds) for the outgoing sms authorization request to timeout.-->
+	<integer name="config_sms_authorization_timeout_ms">15000</integer>
+
+	<!-- Enable SMS authorization support -->
+	<bool name="config_sms_authorization_enabled">true</bool>
+
+	<!-- Set to true to add links to Cell Broadcast app from Settings and MMS app. -->
+	<bool name="config_cellBroadcastAppLinks">true</bool>
+
+	<!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
+	<bool name="config_intrusiveBatteryLed">true</bool>
+
+	<!-- Default value for led color when battery is low on charge -->
+	<integer name="config_notificationsBatteryLowARGB">0xFFFF0000</integer>
+
+	<!-- Default value for led color when battery is medium charged -->
+	<integer name="config_notificationsBatteryMediumARGB">0xFFFF0000</integer>
+
+	<!-- Default value for led color when battery is fully charged -->
+	<integer name="config_notificationsBatteryFullARGB">0xFFFF0000</integer>
+	
+	<!-- Does the notification LED support multiple colors? Used to decide if the user can change the colors --> 
+	<bool name="config_multiColorNotificationLed">false</bool>
+	
+	<!-- Default color for notification LED. --> 
+	<color name="config_defaultNotificationColor">#ffff0000</color>
+
+	<!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
+	<bool name="config_intrusiveNotificationLed">true</bool>
+	
+	<!-- Do the battery/notification LEDs support pulsing? Used to decide if we show pulse settings -->
+	<bool name="config_ledCanPulse">true</bool> 
 
     <string-array name="config_locationProviderPackageNames" translatable="false">
         <!-- The Google provider -->
@@ -72,6 +133,20 @@
     -->
     <bool name="config_enableWifiDisplay">true</bool>
 
+	<!-- Array of ConnectivityManager.TYPE_xxxx values allowable for tethering -->
+	<!-- Common options are [1, 4] for TYPE_WIFI and TYPE_MOBILE_DUN or
+	<!== [0,1,5,7] for TYPE_MOBILE, TYPE_WIFI, TYPE_MOBILE_HIPRI and TYPE_BLUETOOTH -->
+	<integer-array translatable="false" name="config_tether_upstream_types">
+		<item>1</item>
+		<item>0</item>
+		<item>5</item>
+		<item>7</item>
+	</integer-array>
+
+	<!-- Configure wifi tcp buffersizes in the form:
+		 rmem_min,rmem_def,rmem_max,wmem_min,wmem_def,wmem_max -->
+	<string name="config_wifi_tcp_buffers" translatable="false">524288,2097152,8388608,262144,524288,4194304</string>
+
     <!-- enable doze powersaving mode -->
     <bool name="config_enableAutoPowerModes">true</bool>
 
@@ -80,6 +155,45 @@
 
     <!-- The duration in which a recent task is considered in session and should be visible. -->
     <integer name="config_activeTaskDurationHours">12</integer>
+
+	<!-- List of regexpressions describing the interface (if any) that represent tetherable
+		 Wifi interfaces.  If the device doesn't want to support tethering over Wifi this
+		 should be empty.  An example would be "softap.*" -->
+	<string-array translatable="false" name="config_tether_wifi_regexs">
+		<item>"wlan0"</item>
+		<item>"wigig0"</item>
+		<item>"softap0"</item>
+	</string-array>
+
+	<!-- List of regexpressions describing the interface (if any) that represent tetherable
+		 bluetooth interfaces.  If the device doesn't want to support tethering over bluetooth this
+		 should be empty. -->
+	<string-array translatable="false" name="config_tether_bluetooth_regexs">
+			<item>"bnep\\d"</item>
+			<item>"bt-pan"</item>
+	</string-array>
+
+
+	<!-- This string array should be overridden by the device to present a list of radio
+		 attributes.  This is used by the connectivity manager to decide which networks can coexist
+		 based on the hardware -->
+	<!-- An Array of "[ConnectivityManager connectionType],
+					  [# simultaneous connection types]"  -->
+	<string-array translatable="false" name="radioAttributes">
+		<item>"1,1"</item>
+		<item>"0,1"</item>
+		<item>"7,1"</item>
+		<item>"9,1"</item>
+	</string-array>
+
+	<!-- Wifi driver supports batched scan -->
+	<bool translatable="false" name="config_wifi_batched_scan_supported">true</bool>
+
+	<!-- Enable ACS (auto channel selection) for Wifi hotspot (SAP) -->
+	<bool translatable="false" name="config_wifi_softap_acs_supported">true</bool>
+
+	<!-- Enable 802.11ac for Wifi hotspot (SAP) -->
+	<bool translatable="false" name="config_wifi_softap_ieee80211ac_supported">true</bool>
 
     <!-- Default SMS Application. This will be the default SMS application when
          the phone first boots. The user can then change the default app to one
