@@ -1,5 +1,5 @@
-<!--
-     Copyright (C) 2018 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,13 +13,8 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Package name for the default in-call UI and dialer [DO NOT TRANSLATE] -->
-    <string name="ui_default_package" translatable="false">com.google.android.dialer</string>
-
-    <!-- Class name for the default main dialer activity [DO NOT TRANSLATE] -->
-    <string name="dialer_default_class" translatable="false">com.google.android.dialer.extensions.GoogleDialtactsActivity</string>
-
+<resources>
+    <!-- Fingerprint sensor location (y-axis) during setup -->
+    <item name="fingerprint_sensor_location_fraction_y" type="fraction">25%</item>
 </resources>
-

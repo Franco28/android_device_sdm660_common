@@ -269,3 +269,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # ZRAM
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.vendor.qti.config.zram=true
+
