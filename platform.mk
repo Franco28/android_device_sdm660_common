@@ -436,6 +436,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	KCal
 
+# GCam
+PRODUCT_PACKAGES += \
+	GoogleCamera
+
 # Wi-Fi Display
 PRODUCT_BOOT_JARS += \
     WfdCommon
