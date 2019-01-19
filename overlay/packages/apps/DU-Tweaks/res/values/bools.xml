@@ -14,6 +14,6 @@
 <resources>
 
     <!-- Whether or not a device has device extras -->
-    <bool name="has_device_extras">true</bool>
+    <bool name="has_device_extras">false</bool>
 
 </resources>
