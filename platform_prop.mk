@@ -62,7 +62,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
 	bt.max.hfpclient.connections=1 \
-	persist.bt.a2dp.aac_disable=true \
 	persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxhd-aac \
 	vendor.qcom.bluetooth.soc=cherokee
 
@@ -75,7 +74,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.camera.preview.ubwc=0 \
 	persist.vendor.qti.telephony.vt_cam_interface=1 \
 	vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.qualcomm.qti.qmmi,org.cyanogenmod.snap \
-	camera.hal1.packagelist=com.whatsapp,com.android.camera,com.android.camera2
+	camera.hal1.packagelist=com.whatsapp,com.android.camera,com.android.GoogleCamera \
+	camera.hal1.packagelist=com.tencent.mobileqq,com.android.camera,com.android.GoogleCamera \
+	camera.hal1.packagelist=com.tencent.mm,com.android.camera,com.android.GoogleCamera
 
 # Charger
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -130,7 +131,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # GPS
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.backup.ntpServer="0.pool.ntp.org" \
-	persist.vendor.overlay.izat.optin=rro
+	persist.vendor.overlay.izat.optin=rro \
+	ro.location.osnlp.package=com.google.android.gms \
+	ro.location.osnlp.region.package=
 
 # HW Keys
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -219,7 +222,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Shutdown and Restart
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.build.shutdown_timeout=0 \
 	sys.vendor.shutdown.waittime=500
 
 # Stm-events
@@ -264,9 +266,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Wipower
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.bluetooth.emb_wp_mode=true \
-	ro.bluetooth.wipower=true
+	ro.bluetooth.wipower=true \
+	persist.spectrum.profile=0
 
 # ZRAM
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.vendor.qti.config.zram=true
-
