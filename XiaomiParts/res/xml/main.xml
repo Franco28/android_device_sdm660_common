@@ -69,16 +69,6 @@
                 android:targetClass="org.lineageos.settings.kcal.KCalSettingsActivity"
                 android:targetPackage="org.lineageos.settings.kcal" />
         </Preference>
-
-        <Preference
-            android:key="device_doze"
-            android:persistent="false"
-            android:title="@string/device_doze_title">
-            <intent
-                android:action="android.intent.action.MAIN"
-                android:targetClass="org.lineageos.settings.doze.DozeSettingsActivity"
-                android:targetPackage="org.lineageos.settings.doze" />
-        </Preference>
     </PreferenceCategory>
 
     <PreferenceCategory

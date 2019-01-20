@@ -41,8 +41,6 @@ public class DeviceSettings extends PreferenceFragment implements
     final static String VIBRATION_STRENGTH_PATH = "/sys/devices/virtual/timed_output/vibrator/vtg_level";
 
     private final String KEY_CATEGORY_DISPLAY = "display";
-    private final String KEY_DEVICE_DOZE = "device_doze";
-    private final String KEY_DEVICE_DOZE_PACKAGE_NAME = "org.lineageos.settings.doze";
     private final String KEY_DEVICE_KCAL = "device_kcal";
     private final String KEY_DEVICE_KCAL_PACKAGE_NAME = "org.lineageos.settings.kcal";
     private final String SPECTRUM_KEY = "spectrum";
@@ -82,10 +80,6 @@ public class DeviceSettings extends PreferenceFragment implements
         mSPECTRUM.setOnPreferenceChangeListener(this);
 
         PreferenceCategory displayCategory = (PreferenceCategory) findPreference(KEY_CATEGORY_DISPLAY);
-        if (!isAppInstalled(KEY_DEVICE_DOZE_PACKAGE_NAME)) {
-            displayCategory.removePreference(findPreference(KEY_DEVICE_DOZE));
-        }
-
         if (!isAppInstalled(KEY_DEVICE_KCAL_PACKAGE_NAME)) {
             displayCategory.removePreference(findPreference(KEY_DEVICE_KCAL));
         }
