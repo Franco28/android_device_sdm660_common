@@ -2,6 +2,7 @@
 <resources>
 	<string-array name="spectrum_profiles">
 		<item>Balance</item>
+                <item>Standard</item>
 		<item>Performance</item>
 		<item>Battery</item>
 		<item>Gaming</item>
@@ -11,5 +12,6 @@
 		<item>1</item>
 		<item>2</item>
 		<item>3</item>
+                <item>4</item>
 	</string-array>
 </resources>
