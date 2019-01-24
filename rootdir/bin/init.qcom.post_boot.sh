@@ -1,6 +1,6 @@
 #! /vendor/bin/sh
 
-# Copyright (c) 2012-2013, 2016-2018, The Linux Foundation. All rights reserved.
+# Copyright (c) 2012-2013, 2016-2019, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -2474,6 +2474,12 @@ case "$target" in
             # re-enable thermal and BCL hotplug
             echo 1 > /sys/module/msm_thermal/core_control/enabled
 
+            #Add-begin-HMI_M6100_A01-422,lijiang@longcheer.com,2018-10-12
+            #Enable input boost configuration
+            echo "0:1401600" > /sys/module/cpu_boost/parameters/input_boost_freq
+            echo 40 > /sys/module/cpu_boost/parameters/input_boost_ms
+            #Add-end-HMI_M6100_A01-422
+
             # Set Memory parameters
             configure_memory_parameters
 
@@ -4279,28 +4285,12 @@ case "$target" in
         esac
     ;;
     "msm8909")
-        echo 128 > /sys/block/mmcblk0/bdi/read_ahead_kb
-        echo 128 > /sys/block/mmcblk0/queue/read_ahead_kb
-        echo 128 > /sys/block/mmcblk0rpmb/bdi/read_ahead_kb
-        echo 128 > /sys/block/mmcblk0rpmb/queue/read_ahead_kb
         setprop vendor.post_boot.parsed 1
     ;;
     "msm8952")
-        echo 128 > /sys/block/mmcblk0/bdi/read_ahead_kb
-        echo 128 > /sys/block/mmcblk0/queue/read_ahead_kb
-        echo 128 > /sys/block/dm-0/queue/read_ahead_kb
-        echo 128 > /sys/block/dm-1/queue/read_ahead_kb
-        echo 128 > /sys/block/mmcblk0rpmb/bdi/read_ahead_kb
-        echo 128 > /sys/block/mmcblk0rpmb/queue/read_ahead_kb
         setprop vendor.post_boot.parsed 1
     ;;
     "msm8937" | "msm8953")
-        echo 128 > /sys/block/mmcblk0/bdi/read_ahead_kb
-        echo 128 > /sys/block/mmcblk0/queue/read_ahead_kb
-        echo 128 > /sys/block/dm-0/queue/read_ahead_kb
-        echo 128 > /sys/block/dm-1/queue/read_ahead_kb
-        echo 128 > /sys/block/mmcblk0rpmb/bdi/read_ahead_kb
-        echo 128 > /sys/block/mmcblk0rpmb/queue/read_ahead_kb
         setprop vendor.post_boot.parsed 1
 
         low_ram_enable=`getprop ro.config.low_ram`

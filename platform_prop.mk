@@ -36,7 +36,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.af.client_heap_size_kbyte=7168 \
 	ro.audio.flinger_standbytime_ms=300 \
 	ro.audio.soundfx.dirac=true \
-	ro.vendor.audio.sdk.fluencetype=fluence \
 	ro.vendor.audio.sdk.ssr=false \
 	vendor.audio.dolby.ds2.enabled=false \
 	vendor.audio.dolby.ds2.hardbypass=false \
@@ -45,6 +44,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	vendor.audio.hw.aac.encoder=true \
 	vendor.audio.noisy.broadcast.delay=600 \
 	vendor.audio.offload.buffer.size.kb=64 \
+	vendor.audio.offload.track.enable=true \
 	vendor.audio.offload.gapless.enabled=true \
 	vendor.audio.offload.multiaac.enable=true \
 	vendor.audio.offload.multiple.enabled=false \
@@ -75,6 +75,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.qti.telephony.vt_cam_interface=1 \
 	vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.qualcomm.qti.qmmi,org.cyanogenmod.snap \
 	camera.hal1.packagelist=com.whatsapp,com.android.camera,com.android.GoogleCamera \
+	camera.hal1.packagelist=com.whatsapp,com.android.camera,com.android.camera2 \
 	camera.hal1.packagelist=com.tencent.mobileqq,com.android.camera,com.android.GoogleCamera \
 	camera.hal1.packagelist=com.tencent.mm,com.android.camera,com.android.GoogleCamera
 
@@ -113,7 +114,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	debug.sf.hw=1 \
 	persist.hwc.enable_vds=1 \
 	ro.opengles.version=196610 \
-	sdm.debug.disable_skip_validate=1 \
 	vendor.display.enable_default_color_mode=0
 
 # DPM
@@ -203,7 +203,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.radio.custom_ecc=1 \
 	persist.vendor.radio.rat_on=combine \
 	persist.radio.schd.cache=3500 \
-	rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so \
+	rild.libpath=/system/vendor/lib64/libril-qc-hal-qmi.so \
 	ro.com.android.dataroaming=true \
 	ro.telephony.default_network=22,20 \
 	ro.vendor.use_data_netmgrd=true \
@@ -251,7 +251,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Video encoding
 PRODUCT_PROPERTY_OVERRIDES += \
-	vendor.vidc.dec.enable.downscalar=1 \
+	vendor.vidc.dec.enable.downscalar=0 \
 	vendor.vidc.enc.disable_bframes=1 \
 	vendor.vidc.enc.disable.pq=false \
 	vidc.enc.dcvs.extra-buff-count=2 \
@@ -262,6 +262,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.debug.wfd.enable=1 \
 	persist.sys.wfd.virtual=0 \
 	vendor.video.disable.ubwc=1
+
+# Thermal configs path
+PRODUCT_PROPERTY_OVERRIDES += \
+	sys.thermal.data.path=/data/vendor/thermal/
 
 # Wipower
 PRODUCT_PROPERTY_OVERRIDES += \
