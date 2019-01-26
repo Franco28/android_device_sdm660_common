@@ -32,22 +32,4 @@
 		<item>5</item>
 	</string-array>
 
-	<string-array name="fpaction_enteries">
-		<item>Expandir Panel de Notificaciones</item>
-		<item>Expandir QS</item>
-		<item>Asistente</item>
-		<item>Inicio</item>
-		<item>Media siguiente</item>
-		<item>Media reproducir/pausar</item>
-		<item>Media anterior</item>
-	</string-array>
-	<string-array name="fpaction_values">
-		<item>expnp</item>
-		<item>expqs</item>
-		<item>219</item>
-		<item>3</item>
-		<item>87</item>
-		<item>85</item>
-		<item>88</item>
-	</string-array>
 </resources>
