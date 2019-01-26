@@ -32,11 +32,4 @@
     <string name="spectrum_summary">ELija sus ajustes de Rendimiento</string>
     <string name="spectrum_dialogTitle">Elija su ajuste de Rendimiento</string>
 
-    <string name="fp_title">Huella dactilar</string>
-    <string name="fpaction_enabled">Habilitar acciones de huellas dactilares personalizadas</string>
-    <string name="fpshutter_summary">Dispara la cámara si está activa</string>
-    <string name="fp_shutter">Obturador de huellas dactilares</string>
-    <string name="fpaction_dialogTitle">Acción</string>
-    <string name="fpaction_summary">Elija la acción</string>
-    <string name="fpaction_title">Acción de Huella dactilar</string>
 </resources>
