@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2009 The Android Open Source Project
+<!-- Copyright (C) 2018 The Xiaomi-SDM660 Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,16 +13,23 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
 <resources>
+    <string-array name="spectrum_profiles">
+        <item>Standard</item>
+        <item>Performance</item>
+        <item>Energieeffizient</item>
+        <item>Gaming</item>
+        <item>Balance</item>
+        <item>Energiesparmodus</item>
+    </string-array>
 
-    <!-- Whether to show a preference item for mobile plan -->
-    <bool name="config_show_mobile_plan">false</bool>
-
-    <!-- Whether wallpaper attribution should be shown or not. -->
-    <bool name="config_show_wallpaper_attribution">false</bool>
-
-    <!-- Whether system_update_settings should be shown or not. -->
-    <bool name="config_show_system_update_settings">false</bool>
-
+    <string-array name="fpaction_enteries">
+        <item>Benachrichtigungs Panel</item>
+        <item>Schnelleinstellungen</item>
+        <item>Assistent</item>
+        <item>Home</item>
+        <item>Media next</item>
+        <item>Media play/pause</item>
+        <item>Media previous</item>
+    </string-array>
 </resources>

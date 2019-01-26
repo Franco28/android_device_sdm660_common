@@ -439,6 +439,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	KCal
 
+# KeyHandler
+PRODUCT_PACKAGES += \
+	org.lineageos.keyhandler
+
 # GCam
 PRODUCT_PACKAGES += \
 	GoogleCamera
