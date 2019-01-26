@@ -25,4 +25,7 @@
     <!-- Whether system_update_settings should be shown or not. -->
     <bool name="config_show_system_update_settings">false</bool>
 
+    <!-- Whether to add AGPS parameter settings -->
+    <bool name="config_agps_enabled">true</bool>
+
 </resources>
