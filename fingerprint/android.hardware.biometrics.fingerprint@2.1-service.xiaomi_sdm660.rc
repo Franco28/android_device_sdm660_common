@@ -13,6 +13,7 @@ on boot
     chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/regulator_enable
     chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/screen_status
     chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/vreg_op_cnt
+    chown system system /data/misc/fpc/calibration_image.pndat
 
     chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/irq
     chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/wakeup_enable
@@ -22,6 +23,7 @@ on boot
     chmod 0660 /sys/bus/platform/devices/soc:fingerprint_fpc/regulator_enable
     chmod 0660 /sys/bus/platform/devices/soc:fingerprint_fpc/screen_status
     chmod 0660 /sys/bus/platform/devices/soc:fingerprint_fpc/vreg_op_cnt
+    chmod 0600 /data/misc/fpc/calibration_image.pndat
 
 on post-fs-data
     mkdir /data/vendor/fpc 0770 system system
