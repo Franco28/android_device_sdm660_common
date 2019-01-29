@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2018 The Xiaomi-SDM660 Project
+# Copyright (C) 2019 The Xiaomi-SDM660 Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -226,7 +226,8 @@ PRODUCT_PACKAGES += \
 
 # MSM IRQ Balancer configuration file for SDM660
 PRODUCT_COPY_FILES += \
-	$(PLATFORM_PATH)/configs/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
+	$(PLATFORM_PATH)/configs/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf \
+        $(LOCAL_PATH)/configs/msm_irqbalance_sdm630.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance_sdm630.conf
 
 # Net
 PRODUCT_PACKAGES += \
@@ -431,6 +432,22 @@ PRODUCT_COPY_FILES += \
 	$(PLATFORM_PATH)/wifi/fstman.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/fstman.ini \
 	$(PLATFORM_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 
+# Wi-Fi Display
+PRODUCT_BOOT_JARS += \
+    WfdCommon
+PRODUCT_PACKAGES += \
+		     libnl
+
+# Game & APP Boosts
+PRODUCT_COPY_FILES += \
+         $(LOCAL_PATH)/configs/whitelistedapps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/whitelistedapps.xml \
+         $(LOCAL_PATH)/configs/gamedwhitelist.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gamedwhitelist.xml \
+         $(LOCAL_PATH)/configs/appboosts.xml:$(TARGET_COPY_OUT_VENDOR)/etc/appboosts.xml
+
+# Charger
+PRODUCT_PACKAGES += \
+    init.leds.sh
+
 # XiaomiParts
 PRODUCT_PACKAGES += \
 	XiaomiParts
@@ -443,8 +460,3 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	GoogleCamera
 
-# Wi-Fi Display
-PRODUCT_BOOT_JARS += \
-    WfdCommon
-PRODUCT_PACKAGES += \
-		     libnl

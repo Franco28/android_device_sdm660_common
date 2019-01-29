@@ -415,9 +415,9 @@
          Set to -1 to disable the proximity sensor check at all-->
     <integer name="config_flashlightProximityTimeout">-1</integer>
 
-    <!-- Enable system navigation keys. -->
+    <!-- Enable system navigation keys. 
     <bool name="config_supportSystemNavigationKeys">true</bool>
+    Specify if the fingerprint hardware support gestures
+    <bool name="config_fingerprintSupportsGestures">true</bool> -->
 
-    <!-- Specify if the fingerprint hardware support gestures-->
-    <bool name="config_fingerprintSupportsGestures">true</bool>
 </resources>
