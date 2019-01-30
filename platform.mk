@@ -227,7 +227,6 @@ PRODUCT_PACKAGES += \
 # MSM IRQ Balancer configuration file for SDM660
 PRODUCT_COPY_FILES += \
 	$(PLATFORM_PATH)/configs/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf \
-        $(PLATFORM_PATH)/configs/msm_irqbalance_sdm630.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance_sdm630.conf
 
 # Net
 PRODUCT_PACKAGES += \
@@ -437,12 +436,6 @@ PRODUCT_BOOT_JARS += \
     WfdCommon
 PRODUCT_PACKAGES += \
 		     libnl
-
-# Game & APP Boosts
-PRODUCT_COPY_FILES += \
-         $(PLATFORM_PATH)/configs/whitelistedapps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/whitelistedapps.xml \
-         $(PLATFORM_PATH)/configs/gamedwhitelist.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gamedwhitelist.xml \
-         $(PLATFORM_PATH)/configs/appboosts.xml:$(TARGET_COPY_OUT_VENDOR)/etc/appboosts.xml
 
 # Nexus/Pixel Device
 PRODUCT_COPY_FILES += \
