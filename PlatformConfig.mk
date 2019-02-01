@@ -107,15 +107,13 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(PLATFORM_PATH)/bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 QCOM_BT_USE_BTNV := true
+TARGET_USE_QTI_BT_STACK := true
 BOARD_HAS_QCA_BT_SOC := "cherokee"
-BLUETOOTH_HCI_USE_MCT := true
-QCOM_BT_USE_SMD_TTY := true
 
 # Camera
 TARGET_USES_QTI_CAMERA_DEVICE := true
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 USE_DEVICE_SPECIFIC_CAMERA := true
-TARGET_USES_QTI_CAMERA2CLIENT := true
 
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
@@ -127,6 +125,9 @@ BOARD_USES_QCNE := true
 # CPUSets
 ENABLE_CPUSETS := true
 ENABLE_SCHEDBOOST := true
+
+# DRM
+TARGET_ENABLE_MEDIADRM_64 := true
 
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
@@ -179,7 +180,7 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(PLATFORM_PATH)/vendor_framework_
 DEVICE_FRAMEWORK_MANIFEST_FILE := $(PLATFORM_PATH)/framework_manifest.xml
 
 # Init
-TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
+TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
 # Kernel Configuration
 BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 earlycon=msm_serial_dm,0xc170000 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1 service_locator.enable=1 swiotlb=1 androidboot.configfs=true androidboot.usbcontroller=a800000.dwc3

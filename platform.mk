@@ -121,13 +121,9 @@ PRODUCT_PACKAGES += \
 	android.hardware.configstore@1.0-service \
 	android.hardware.broadcastradio@1.0-impl
 
-# Doze
-PRODUCT_PACKAGES += \
-	XiaomiDoze
-
 # DRM
 PRODUCT_PACKAGES += \
-	android.hardware.drm@1.0-impl:32 \
+	android.hardware.drm@1.0-impl \
 	android.hardware.drm@1.0-service \
 	android.hardware.drm@1.1-service.clearkey
 
@@ -324,8 +320,7 @@ PRODUCT_PACKAGES += \
 	init.qcom.post_boot.sh \
 	init.qcom.sh \
 	init.qcom.usb.sh \
-	init.qti.fm.sh \
-	init.qti.qseecomd.sh
+	init.qti.fm.sh
 
 PRODUCT_PACKAGES += \
 	init.msm.usb.configfs.rc \
@@ -456,5 +451,6 @@ PRODUCT_COPY_FILES += \
 # Wi-Fi Display
 PRODUCT_BOOT_JARS += \
     WfdCommon
+
 PRODUCT_PACKAGES += \
 		     libnl

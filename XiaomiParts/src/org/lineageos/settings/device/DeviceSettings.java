@@ -36,8 +36,8 @@ public class DeviceSettings extends PreferenceFragment implements
     final static String VIBRATION_STRENGTH_KEY = "vibration_strength";
     private final String SPECTRUM_KEY = "spectrum";
 
-    private final String HAL3_SYSTEM_PROPERTY = "persist.camera.HAL3.enabled";
-    private final String EIS_SYSTEM_PROPERTY = "persist.camera.eis.enable";
+    private final String HAL3_SYSTEM_PROPERTY = "persist.vendor.camera.HAL3.enabled";
+    private final String EIS_SYSTEM_PROPERTY = "persist.vendor.camera.eis.enable";
     private final String SPECTRUM_SYSTEM_PROPERTY = "persist.spectrum.profile";
 
     final static String TORCH_1_BRIGHTNESS_PATH = "/sys/devices/soc/800f000.qcom,spmi/spmi-0/spmi0-03/800f000.qcom,spmi:qcom,pm660l@3:qcom,leds@d300/leds/led:torch_0/max_brightness";
@@ -45,8 +45,6 @@ public class DeviceSettings extends PreferenceFragment implements
     final static String VIBRATION_STRENGTH_PATH = "/sys/devices/virtual/timed_output/vibrator/vtg_level";
 
     private final String KEY_CATEGORY_DISPLAY = "display";
-    private final String KEY_DEVICE_DOZE = "device_doze";
-    private final String KEY_DEVICE_DOZE_PACKAGE_NAME = "org.lineageos.settings.doze";
     private final String KEY_DEVICE_KCAL = "device_kcal";
     private final String KEY_DEVICE_KCAL_PACKAGE_NAME = "org.lineageos.settings.kcal";
 
@@ -98,10 +96,6 @@ public class DeviceSettings extends PreferenceFragment implements
         mSPECTRUM.setOnPreferenceChangeListener(this);
 
         PreferenceCategory displayCategory = (PreferenceCategory) findPreference(KEY_CATEGORY_DISPLAY);
-        if (!isAppInstalled(KEY_DEVICE_DOZE_PACKAGE_NAME)) {
-            displayCategory.removePreference(findPreference(KEY_DEVICE_DOZE));
-        }
-
         if (!isAppInstalled(KEY_DEVICE_KCAL_PACKAGE_NAME)) {
             displayCategory.removePreference(findPreference(KEY_DEVICE_KCAL));
         }
