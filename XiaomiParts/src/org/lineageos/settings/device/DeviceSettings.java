@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The Xiaomi-SDM660 Project
+ * Copyright (C) 2018 The Xiaomi-SDM660 Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,9 @@ public class DeviceSettings extends PreferenceFragment implements
 
     private final String ENABLE_HAL3_KEY = "hal3";
     private final String ENABLE_EIS_KEY = "eis";
+    final static String ENABLE_FPACTION_KEY = "fpaction_enabled";
+    final static String FP_SHUTTER_KEY = "fp_shutter";
+    final static String FPACTION_KEY = "fpaction";
     final static String TORCH_BRIGHTNESS_KEY = "torch_brightness";
     final static String VIBRATION_STRENGTH_KEY = "vibration_strength";
     private final String SPECTRUM_KEY = "spectrum";
@@ -42,11 +45,16 @@ public class DeviceSettings extends PreferenceFragment implements
     final static String VIBRATION_STRENGTH_PATH = "/sys/devices/virtual/timed_output/vibrator/vtg_level";
 
     private final String KEY_CATEGORY_DISPLAY = "display";
+    private final String KEY_DEVICE_DOZE = "device_doze";
+    private final String KEY_DEVICE_DOZE_PACKAGE_NAME = "org.lineageos.settings.doze";
     private final String KEY_DEVICE_KCAL = "device_kcal";
     private final String KEY_DEVICE_KCAL_PACKAGE_NAME = "org.lineageos.settings.kcal";
 
     private SwitchPreference mEnableHAL3;
     private SwitchPreference mEnableEIS;
+    static SwitchPreference mEnableFpAction;
+    static SwitchPreference mFpShutter;
+    static ListPreference mFpAction;
     private TorchSeekBarPreference mTorchBrightness;
     private VibrationSeekBarPreference mVibrationStrength;
     private ListPreference mSPECTRUM;
@@ -66,6 +74,16 @@ public class DeviceSettings extends PreferenceFragment implements
         mEnableEIS.setChecked(FileUtils.getProp(EIS_SYSTEM_PROPERTY, false));
         mEnableEIS.setOnPreferenceChangeListener(this);
 
+        mEnableFpAction = (SwitchPreference) findPreference(ENABLE_FPACTION_KEY);
+        mEnableFpAction.setOnPreferenceChangeListener(this);
+
+        mFpShutter = (SwitchPreference) findPreference(FP_SHUTTER_KEY);
+        mFpShutter.setOnPreferenceChangeListener(this);
+
+        mFpAction = (ListPreference) findPreference(FPACTION_KEY);
+        mFpAction.setSummary(mFpAction.getEntry());
+        mFpAction.setOnPreferenceChangeListener(this);
+
         mTorchBrightness = (TorchSeekBarPreference) findPreference(TORCH_BRIGHTNESS_KEY);
         mTorchBrightness.setEnabled(FileUtils.fileWritable(TORCH_1_BRIGHTNESS_PATH) && FileUtils.fileWritable(TORCH_2_BRIGHTNESS_PATH));
         mTorchBrightness.setOnPreferenceChangeListener(this);
@@ -80,6 +98,10 @@ public class DeviceSettings extends PreferenceFragment implements
         mSPECTRUM.setOnPreferenceChangeListener(this);
 
         PreferenceCategory displayCategory = (PreferenceCategory) findPreference(KEY_CATEGORY_DISPLAY);
+        if (!isAppInstalled(KEY_DEVICE_DOZE_PACKAGE_NAME)) {
+            displayCategory.removePreference(findPreference(KEY_DEVICE_DOZE));
+        }
+
         if (!isAppInstalled(KEY_DEVICE_KCAL_PACKAGE_NAME)) {
             displayCategory.removePreference(findPreference(KEY_DEVICE_KCAL));
         }
@@ -103,6 +125,21 @@ public class DeviceSettings extends PreferenceFragment implements
             case ENABLE_EIS_KEY:
                 mEnableEIS.setChecked((Boolean) value);
                 FileUtils.setProp(EIS_SYSTEM_PROPERTY, (Boolean) value);
+                break;
+
+            case ENABLE_FPACTION_KEY:
+                mEnableFpAction.setChecked((Boolean) value);
+                mFpAction.setEnabled((Boolean) value);
+                mFpShutter.setEnabled((Boolean) value);
+                break;
+
+            case FP_SHUTTER_KEY:
+                mFpShutter.setChecked((Boolean) value);
+                break;
+
+            case FPACTION_KEY:
+                mFpAction.setValue((String) value);
+                mFpAction.setSummary(mFpAction.getEntry());
                 break;
 
             case TORCH_BRIGHTNESS_KEY:

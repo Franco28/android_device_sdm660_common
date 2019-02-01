@@ -23,21 +23,24 @@
 #
  */
 
-#include <hardware/hardware.h>
-#include <hardware/thermal.h>
+package org.lineageos.settings.doze;
 
-static struct hw_module_methods_t thermal_module_methods = {
-    .open = NULL,
-};
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 
-thermal_module_t HAL_MODULE_INFO_SYM = {
-    .common = {
-        .tag = HARDWARE_MODULE_TAG,
-        .module_api_version = THERMAL_HARDWARE_MODULE_API_VERSION_0_1,
-        .hal_api_version = HARDWARE_HAL_API_VERSION,
-        .id = THERMAL_HARDWARE_MODULE_ID,
-        .name = "Default Thermal HAL",
-        .author = "The Android Open Source Project",
-        .methods = &thermal_module_methods,
-    },
-};
+public class BootCompletedReceiver extends BroadcastReceiver {
+
+    private static final boolean DEBUG = false;
+    private static final String TAG = "XiaomiDoze";
+
+    @Override
+    public void onReceive(final Context context, Intent intent) {
+        if (Utils.isDozeEnabled(context) && Utils.sensorsEnabled(context)) {
+            if (DEBUG) Log.d(TAG, "Starting service");
+            Utils.startService(context);
+        }
+    }
+
+}

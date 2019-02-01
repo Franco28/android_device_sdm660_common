@@ -31,6 +31,32 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="fingerprint"
+        android:title="@string/fp_title">
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="fpaction_enabled"
+            android:title="@string/fpaction_enabled" />
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="fp_shutter"
+            android:summary="@string/fpshutter_summary"
+            android:title="@string/fp_shutter" />
+
+        <ListPreference
+            android:defaultValue="0"
+            android:dialogTitle="@string/fpaction_dialogTitle"
+            android:entries="@array/fpaction_enteries"
+            android:entryValues="@array/fpaction_values"
+            android:key="fpaction"
+            android:summary="@string/fpaction_summary"
+            android:title="@string/fpaction_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="torch"
         android:title="@string/torch_title">
 
@@ -68,6 +94,17 @@
                 android:action="android.intent.action.MAIN"
                 android:targetClass="org.lineageos.settings.kcal.KCalSettingsActivity"
                 android:targetPackage="org.lineageos.settings.kcal" />
+        </Preference>
+
+        <Preference
+            android:key="device_doze"
+            android:persistent="false"
+            android:title="@string/ambient_display_xiaomi"
+            android:summary="@string/advanced_doze_summary">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetClass="org.lineageos.settings.doze.DozeSettingsActivity"
+                android:targetPackage="org.lineageos.settings.doze" />
         </Preference>
     </PreferenceCategory>
 

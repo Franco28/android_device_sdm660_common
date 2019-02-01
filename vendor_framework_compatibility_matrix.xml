@@ -1,5 +1,5 @@
 <!-- #
-# Copyright (C) 2019 The Xiaomi-SDM660 Project
+# Copyright (C) 2018 The Xiaomi-SDM660 Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,6 +12,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
 #
 # This file sets variables that control the way modules are built
 # thorughout the system. It should not be used to conditionally
@@ -464,7 +465,7 @@
    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.qti.data.factory</name>
-        <version>1.0-1</version>
+        <version>1.0</version>
         <interface>
             <name>IFactory</name>
             <instance>default</instance>

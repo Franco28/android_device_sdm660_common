@@ -21,32 +21,38 @@
 # definition file).
 #
 
-LOCAL_PATH := $(call my-dir)
-
+LOCAL_PATH:= $(call my-dir)
+ifeq ($(BOARD_VENDOR_PLATFORM),xiaomi-sdm660)
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := thermal.$(TARGET_BOARD_PLATFORM)
-LOCAL_MODULE_RELATIVE_PATH := hw
-LOCAL_PROPRIETARY_MODULE := true
-
-ifeq ($(call is-board-platform-in-list,msm8998), true)
-LOCAL_SRC_FILES := thermal.c
-LOCAL_SRC_FILES += thermal-8998.c
-SUPPORT_THERMAL_HAL:=1
-endif
-
-ifeq ($(call is-board-platform-in-list,sdm845), true)
-LOCAL_SRC_FILES := thermal.c
-LOCAL_SRC_FILES += thermal-845.c
-SUPPORT_THERMAL_HAL:=1
-endif
-
-ifeq ($(SUPPORT_THERMAL_HAL),)
-LOCAL_SRC_FILES := thermal-default.c
-endif
-
-LOCAL_SHARED_LIBRARIES := liblog libcutils
 LOCAL_MODULE_TAGS := optional
-LOCAL_CFLAGS := -Wno-unused-parameter
 
-include $(BUILD_SHARED_LIBRARY)
+LOCAL_SRC_FILES := $(call all-java-files-under, src)
+
+LOCAL_PACKAGE_NAME := XiaomiDoze
+LOCAL_CERTIFICATE := platform
+LOCAL_PRIVATE_PLATFORM_APIS := true
+LOCAL_PRIVILEGED_MODULE := true
+LOCAL_PRIVATE_PLATFORM_APIS := true
+
+LOCAL_USE_AAPT2 := true
+
+LOCAL_STATIC_ANDROID_LIBRARIES := \
+    android-support-v4 \
+    android-support-v13 \
+    android-support-v7-recyclerview \
+    android-support-v7-preference \
+    android-support-v7-appcompat \
+    android-support-v14-preference \
+
+
+LOCAL_RESOURCE_DIR := \
+    $(LOCAL_PATH)/res \
+    $(TOP)/packages/resources/devicesettings/res
+
+LOCAL_PROGUARD_FLAG_FILES := proguard.flags
+
+include $(BUILD_PACKAGE)
+
+include $(call all-makefiles-under,$(LOCAL_PATH))
+endif

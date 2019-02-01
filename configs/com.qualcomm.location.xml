@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!---******************************************************************************
-*  @file    com.qualcomm.location.xml
-*  @brief   configuration file for permission mapping
+* @file    com.qualcomm.location.xml
+* @brief   configuration file for permission mapping
 *  Copyright (c) 2012 Qualcomm Atheros, Inc.
 *  All Rights Reserved.
 *  Qualcomm Atheros Confidential and Proprietary.

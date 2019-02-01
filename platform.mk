@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2019 The Xiaomi-SDM660 Project
+# Copyright (C) 2018 The Xiaomi-SDM660 Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -121,6 +121,10 @@ PRODUCT_PACKAGES += \
 	android.hardware.configstore@1.0-service \
 	android.hardware.broadcastradio@1.0-impl
 
+# Doze
+PRODUCT_PACKAGES += \
+	XiaomiDoze
+
 # DRM
 PRODUCT_PACKAGES += \
 	android.hardware.drm@1.0-impl:32 \
@@ -220,13 +224,20 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
 	$(PLATFORM_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
+# Keylayouts
+PRODUCT_COPY_FILES += \
+	$(PLATFORM_PATH)/configs/keylayout/sdm660-snd-card_Button_Jack.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/sdm660-snd-card_Button_Jack.kl \
+	$(PLATFORM_PATH)/configs/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl \
+	$(PLATFORM_PATH)/configs/keylayout/uinput-goodix.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-goodix.kl \
+	$(PLATFORM_PATH)/configs/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl
+
 # Lights
 PRODUCT_PACKAGES += \
 	android.hardware.light@2.0-service.xiaomi_sdm660
 
 # MSM IRQ Balancer configuration file for SDM660
 PRODUCT_COPY_FILES += \
-	$(PLATFORM_PATH)/configs/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf \
+	$(PLATFORM_PATH)/configs/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
 
 # Net
 PRODUCT_PACKAGES += \
@@ -248,13 +259,6 @@ PRODUCT_PACKAGES += \
 	libOmxVdec \
 	libOmxVenc \
 	libstagefrighthw
-
-# Keylayouts
-PRODUCT_COPY_FILES += \
-	$(PLATFORM_PATH)/configs/keylayout/sdm660-snd-card_Button_Jack.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/sdm660-snd-card_Button_Jack.kl \
-	$(PLATFORM_PATH)/configs/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl \
-	$(PLATFORM_PATH)/configs/keylayout/uinput-goodix.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-goodix.kl \
-	$(PLATFORM_PATH)/configs/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -284,7 +288,7 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
 	frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
 	frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml \
-	frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level.xml \
+	frameworks/native/data/etc/android.hardware.vulkan.level-1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level-1.xml \
 	frameworks/native/data/etc/android.hardware.vulkan.version-1_1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version.xml \
 	frameworks/native/data/etc/android.hardware.vulkan.compute-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.compute.xml \
 	frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml \
@@ -420,33 +424,10 @@ PRODUCT_PACKAGES += \
 	wpa_supplicant.conf
 
 PRODUCT_COPY_FILES += \
-	$(PLATFORM_PATH)/wifi/hostapd.accept:$(TARGET_COPY_OUT_VENDOR)/etc/hostapd/hostapd.accept \
-	$(PLATFORM_PATH)/wifi/hostapd.conf:$(TARGET_COPY_OUT_VENDOR)/etc/hostapd/hostapd_default.conf \
-	$(PLATFORM_PATH)/wifi/hostapd.deny:$(TARGET_COPY_OUT_VENDOR)/etc/hostapd/hostapd.deny \
 	$(PLATFORM_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
 	$(PLATFORM_PATH)/wifi/wifi_concurrency_cfg.txt:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wifi_concurrency_cfg.txt \
 	$(PLATFORM_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
-	$(PLATFORM_PATH)/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf \
-	$(PLATFORM_PATH)/wifi/hostapd.android.rc:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/hostapd.android.rc \
-	$(PLATFORM_PATH)/wifi/fstman.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/fstman.ini \
 	$(PLATFORM_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
-
-# Wi-Fi Display
-PRODUCT_BOOT_JARS += \
-    WfdCommon
-PRODUCT_PACKAGES += \
-		     libnl
-
-# Nexus/Pixel Device
-PRODUCT_COPY_FILES += \
-	$(PLATFORM_PATH)/sysconfig/google_build.xml:system/etc/sysconfig/google_build.xml \
-	$(PLATFORM_PATH)/sysconfig/nexus.xml:system/etc/sysconfig/nexus.xml \
-	$(PLATFORM_PATH)/sysconfig/pixel_2017.xml:system/etc/sysconfig/pixel_2017.xml \
-	$(PLATFORM_PATH)/sysconfig/pixel_2017_exclusive.xml:system/etc/sysconfig/pixel_2017_exclusive.xml 
-
-# Charger
-PRODUCT_PACKAGES += \
-    init.leds.sh
 
 # XiaomiParts
 PRODUCT_PACKAGES += \
@@ -456,7 +437,24 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	KCal
 
+# KeyHandler
+PRODUCT_PACKAGES += \
+	org.lineageos.keyhandler
+
 # GCam
 PRODUCT_PACKAGES += \
 	GoogleCamera
 
+# Nexus/Pixel Device
+PRODUCT_COPY_FILES += \
+	$(PLATFORM_PATH)/sysconfig/google_build.xml:system/etc/sysconfig/google_build.xml \
+	$(PLATFORM_PATH)/sysconfig/nexus.xml:system/etc/sysconfig/nexus.xml \
+	$(PLATFORM_PATH)/sysconfig/pixel_2017.xml:system/etc/sysconfig/pixel_2017.xml \
+	$(PLATFORM_PATH)/sysconfig/pixel_2017_exclusive.xml:system/etc/sysconfig/pixel_2017_exclusive.xml 
+
+
+# Wi-Fi Display
+PRODUCT_BOOT_JARS += \
+    WfdCommon
+PRODUCT_PACKAGES += \
+		     libnl
