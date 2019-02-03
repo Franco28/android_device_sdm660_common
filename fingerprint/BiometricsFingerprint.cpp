@@ -30,7 +30,7 @@
 #include <hardware/hardware.h>
 #include <hardware/fingerprint.h>
 #include "BiometricsFingerprint.h"
-
+#include <cutils/properties.h>
 #include <inttypes.h>
 #include <unistd.h>
 
@@ -264,6 +264,11 @@ fingerprint_device_t* getDeviceForVendor(const char *class_name)
     return fp_device;
 }
 
+void setFpVendorProp(const char *fp_vendor) {
+    property_set("persist.sys.fp.vendor", fp_vendor);
+    property_set("ro.boot.fpsensor", fp_vendor);
+}
+
 fingerprint_device_t* getFingerprintDevice()
 {
     fingerprint_device_t *fp_device;
@@ -272,6 +277,7 @@ fingerprint_device_t* getFingerprintDevice()
     if (fp_device == nullptr) {
         ALOGE("Failed to load fpc fingerprint module");
     } else {
+        setFpVendorProp("fpc");
         return fp_device;
     }
 
@@ -279,8 +285,10 @@ fingerprint_device_t* getFingerprintDevice()
     if (fp_device == nullptr) {
         ALOGE("Failed to load goodix fingerprint module");
     } else {
+        setFpVendorProp("goodix");
         return fp_device;
     }
+    setFpVendorProp("none");
 
     return nullptr;
 }
