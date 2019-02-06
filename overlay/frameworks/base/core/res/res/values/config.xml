@@ -408,6 +408,12 @@
          config_proximityCheckOnWake must be true. -->
     <bool name="config_proximityCheckOnFingerprintWake">true</bool>
 
+    <!-- Enable system navigation keys. -->
+    <bool name="config_supportSystemNavigationKeys">true</bool>
+
+    <!-- Specify if the fingerprint hardware support gestures-->
+    <bool name="config_fingerprintSupportsGestures">true</bool>
+
 		<!-- Time to give to the proximity sensor before toggling the flashlight with the Power button.
          Set to -1 to disable the proximity sensor check at all-->
     <integer name="config_flashlightProximityTimeout">-1</integer>
@@ -422,11 +428,10 @@
 			<item>org.lineageos.settings.device.KeyHandler</item>
 		</string-array>
 
-<!--
-#
-# DU SETTINGS.............................................................
-#
+<!-- 
+DU SETTINGS 
 -->
+
     <!-- IP address of the dns server to use if nobody else suggests one -->
     <string name="config_default_dns_server" translatable="false">1.0.0.1</string>
 
@@ -516,5 +521,4 @@
 
     <!-- Component name for default assistant on this device -->
     <string name="config_defaultAssistantComponentName">com.google.android.googlequicksearchbox/com.google.android.voiceinteraction.GsaVoiceInteractionService</string>
-
 </resources>

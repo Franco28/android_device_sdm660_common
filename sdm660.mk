@@ -97,6 +97,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	cneapiclient \
 	com.quicinc.cne
+	
+# Dirac
+PRODUCT_PACKAGES += \
+	Dirac
 
 # Display
 PRODUCT_PACKAGES += \
@@ -121,6 +125,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	android.hardware.configstore@1.0-service \
 	android.hardware.broadcastradio@1.0-impl
+
+# Doze
+PRODUCT_PACKAGES += \
+	XiaomiDoze
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -447,3 +455,7 @@ PRODUCT_BOOT_JARS += \
     WfdCommon
 PRODUCT_PACKAGES += \
 		     libnl
+
+# ThermalController app
+PRODUCT_PACKAGES += \
+    ThermalController
