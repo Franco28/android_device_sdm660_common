@@ -1,30 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-#
-# Copyright (C) 2018 The Xiaomi-SDM660 Project
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-#
-# This file sets variables that control the way modules are built
-# thorughout the system. It should not be used to conditionally
-# disable makefiles (the proper mechanism to control what gets
-# included in a build is to use PRODUCT_PACKAGES in a product
-# definition file).
-#
--->
-
-<resources>
 	<!-- Operating volatage for bluetooth controller. 0 by default-->
 	<integer translatable="false" name="config_bluetooth_operating_voltage_mv">3300</integer>
 
@@ -133,11 +109,9 @@
 		 in gralloc protected buffers.  For this to be true, there must exist
 		 a protected hardware path for surface flinger to composite and send
 		 protected buffers to the wifi display video encoder.
-
 		 If this flag is false, we advise applications not to use protected
 		 buffers (if possible) when presenting content to a wifi display because
 		 the content may be blanked.
-
 		 This flag controls whether the {@link Display#FLAG_SUPPORTS_PROTECTED_BUFFERS}
 		 flag is set for wifi displays.
 	-->
@@ -381,6 +355,9 @@
 	<!-- Flag indicating whether round icons should be parsed from the application manifest. -->
 	<bool name="config_useRoundIcon">true</bool>
 
+	 <!-- Whether the device has outdated qti-telephony-common.jar -->
+	<bool name="config_oldQtiTelephony">false</bool>
+
 	<!-- Amount of time it takes for the light sensor to warm up in milliseconds.
 		  For this time after the screen turns on, the Power Manager
 		  will not debounce light sensor readings -->
@@ -408,12 +385,6 @@
          config_proximityCheckOnWake must be true. -->
     <bool name="config_proximityCheckOnFingerprintWake">true</bool>
 
-    <!-- Enable system navigation keys. -->
-    <bool name="config_supportSystemNavigationKeys">true</bool>
-
-    <!-- Specify if the fingerprint hardware support gestures-->
-    <bool name="config_fingerprintSupportsGestures">true</bool>
-
 		<!-- Time to give to the proximity sensor before toggling the flashlight with the Power button.
          Set to -1 to disable the proximity sensor check at all-->
     <integer name="config_flashlightProximityTimeout">-1</integer>
@@ -427,9 +398,19 @@
 		<string-array name="config_deviceKeyHandlerClasses" translatable="false">
 			<item>org.lineageos.settings.device.KeyHandler</item>
 		</string-array>
+		
+		<!-- Show HD VoLTE Icon -->
+		<bool name="config_display_hd_volte">true</bool>
 
 <!-- 
-DU SETTINGS 
+
+     ____  _      __           __  __      _                           
+    / __ \(_)____/ /___  __   / / / /___  (_)________  _________  _____
+   / / / / / ___/ __/ / / /  / / / / __ \/ / ___/ __ \/ ___/ __ \/ ___/
+  / /_/ / / /  / /_/ /_/ /  / /_/ / / / / / /__/ /_/ / /  / / / (__  ) 
+ /_____/_/_/   \__/\__, /   \____/_/ /_/_/\___/\____/_/  /_/ /_/____/  
+                 /____/     
+
 -->
 
     <!-- IP address of the dns server to use if nobody else suggests one -->
@@ -521,4 +502,5 @@ DU SETTINGS
 
     <!-- Component name for default assistant on this device -->
     <string name="config_defaultAssistantComponentName">com.google.android.googlequicksearchbox/com.google.android.voiceinteraction.GsaVoiceInteractionService</string>
+
 </resources>

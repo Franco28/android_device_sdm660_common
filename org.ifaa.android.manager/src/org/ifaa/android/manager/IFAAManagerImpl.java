@@ -79,8 +79,10 @@ public class IFAAManagerImpl extends IFAAManagerV3 {
     }
 
     public String getDeviceModel() {
-        mDevModel = "xiaomi" + "-" + "wayne";
-        Slog.i(TAG, "getDeviceModel deviceModel:" + mDevModel);
+        if (mDevModel == null) {
+            mDevModel = Build.MANUFACTURER + "-" + Build.DEVICE;
+        }
+        Slog.i(TAG, "getDeviceModel devcieModel:" + mDevModel);
         return mDevModel;
     }
 
