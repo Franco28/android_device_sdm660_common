@@ -35,9 +35,9 @@ DEVICE_PACKAGE_OVERLAYS := device/xiaomi/sdm660-common/overlay
 
 # Build Fingerprint
 PRODUCT_BUILD_PROP_OVERRIDES += \
-		PRIVATE_BUILD_DESC="taimen-user 9 PQ1A.190105.004 5148680 release-keys"
+		PRIVATE_BUILD_DESC="crosshatch-user 9 PQ2A.190205.001 5163636 release-keys"
 
-BUILD_FINGERPRINT := google/taimen/taimen:9/PQ1A.190105.004/5148680:user/release-keys
+BUILD_FINGERPRINT := google/crosshatch/crosshatch:9/PQ2A.190205.001/5163636:user/release-keys
 
 # Platform properties
 $(call inherit-product, $(PLATFORM_PATH)/platform_prop.mk)
@@ -449,6 +449,10 @@ PRODUCT_COPY_FILES += \
 	$(PLATFORM_PATH)/sysconfig/pixel_2017.xml:system/etc/sysconfig/pixel_2017.xml \
 	$(PLATFORM_PATH)/sysconfig/pixel_2017_exclusive.xml:system/etc/sysconfig/pixel_2017_exclusive.xml 
 
+PRODUCT_COPY_FILES += $(PLATFORM_PATH)/configs/whitelistedapps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/whitelistedapps.xml \
+                      $(PLATFORM_PATH)/configs/gamedwhitelist.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gamedwhitelist.xml \
+                      $(PLATFORM_PATH)/configs/appboosts.xml:$(TARGET_COPY_OUT_VENDOR)/etc/appboosts.xml
+
 # XiaomiParts
 PRODUCT_PACKAGES += \
 	XiaomiParts
@@ -457,7 +461,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	KCal
 
-# KCal
+# GCam
 PRODUCT_PACKAGES += \
 	GoogleCamera
 

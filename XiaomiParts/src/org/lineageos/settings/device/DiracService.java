@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The LineageOS Project
+ * Copyright (C) 2019 The Xiaomi-SDM660 Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -11,65 +11,38 @@
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
- * limitations under the License.
+ * limitations under the License
  */
 
 package org.lineageos.settings.device;
 
-import android.media.audiofx.AudioEffect;
+import android.app.Service;
+import android.content.Intent;
+import android.os.IBinder;
+import android.util.Log;
 
-import java.util.UUID;
+public class DiracService extends Service {
 
-class DiracSound extends AudioEffect {
+    static final String TAG = "DiracService";
 
-    private static final int DIRACSOUND_PARAM_HEADSET_TYPE = 1;
-    private static final int DIRACSOUND_PARAM_EQ_LEVEL = 2;
-    private static final int DIRACSOUND_PARAM_MUSIC = 4;
+    static DiracUtils sDiracUtils;
 
-    private static final UUID EFFECT_TYPE_DIRACSOUND =
-            UUID.fromString("e069d9e0-8329-11df-9168-0002a5d5c51b");
-
-    DiracSound(int priority, int audioSession) {
-        super(EFFECT_TYPE_NULL, EFFECT_TYPE_DIRACSOUND, priority, audioSession);
+    @Override
+    public IBinder onBind(Intent arg0) {
+        return null;
     }
 
-    void setMusic(int enable) throws IllegalStateException,
-            IllegalArgumentException, UnsupportedOperationException {
-        checkStatus(setParameter(DIRACSOUND_PARAM_MUSIC, enable));
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        sDiracUtils = new DiracUtils();
+        sDiracUtils.onBootCompleted();
+        Log.d(TAG, "Service started");
+        return START_STICKY;
     }
 
-    int getMusic() throws IllegalStateException,
-            IllegalArgumentException, UnsupportedOperationException {
-        int[] value = new int[1];
-        checkStatus(getParameter(DIRACSOUND_PARAM_MUSIC, value));
-        return value[0];
-    }
-
-    void setHeadsetType(int type) throws IllegalStateException,
-            IllegalArgumentException, UnsupportedOperationException {
-        checkStatus(setParameter(DIRACSOUND_PARAM_HEADSET_TYPE, type));
-    }
-
-    int getHeadsetType() throws IllegalStateException,
-            IllegalArgumentException, UnsupportedOperationException {
-        int[] value = new int[1];
-        checkStatus(getParameter(DIRACSOUND_PARAM_HEADSET_TYPE, value));
-        return value[0];
-    }
-
-    void setLevel(int band, float level) throws IllegalStateException,
-            IllegalArgumentException, UnsupportedOperationException {
-        checkStatus(setParameter(new int[]{DIRACSOUND_PARAM_EQ_LEVEL, band},
-                String.valueOf(level).getBytes()));
-    }
-
-    float getLevel(int band) throws IllegalStateException,
-            IllegalArgumentException, UnsupportedOperationException {
-        int[] param = new int[2];
-        byte[] value = new byte[10];
-        param[0] = DIRACSOUND_PARAM_EQ_LEVEL;
-        param[1] = band;
-        checkStatus(getParameter(param, value));
-        return Float.valueOf(new String(value));
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "Service destroyed");
     }
 }

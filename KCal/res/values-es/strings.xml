@@ -2,9 +2,9 @@
     <string name="advanced_settings">Calibración del color de la pantalla</string>
     <string name="advanced_settings_summary">Calibración de color</string>
     <string name="cat_calibration">Calibración de pantalla</string>
-    <string name="kcal_enabled">Encendido</string>
+    <string name="kcal_enabled">Apagar</string>
     <string name="set_on_boot">Aplicar al inicio</string>
-    <string name="kcal_disabled">Apagar</string>
+    <string name="kcal_disabled">Encender</string>
     <string name="greyscale_display">Pantalla en escala de grises</string>
     <string name="color_red">Rojo</string>
     <string name="color_green">Verde</string>

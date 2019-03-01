@@ -20,6 +20,6 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- [CHAR_LIMIT=NONE] Battery saver: Feature description -->
-    <string name="battery_saver_description">Pro zlepšení životnosti baterie, spořič baterie omezí výkon vašeho zařízení a vibrace, ambientní displej, služby určení polohy a většinu dat na pozadí. Email, zprávy a ostatní aplikace, které spoléhají na synchronizaci se nemusí aktualizovat dokud je neotevřete.\n\nSpořič baterie se automaticky vypne, pokud se zařízení právě nabíjí.</string>
+    <string name="battery_saver_description">Para ayudar a mejorar la vida útil de la batería, el ahorro de batería reduce el rendimiento de su dispositivo y limita la vibración, la pantalla ambiental, los servicios de ubicación y la mayoría de los datos de fondo. Es posible que el correo electrónico, los mensajes y otras aplicaciones que dependen de la sincronización no se actualicen a menos que los abra.\n\nEl ahorro de batería se apaga automáticamente cuando su dispositivo se está cargando.</string>
 
 </resources>

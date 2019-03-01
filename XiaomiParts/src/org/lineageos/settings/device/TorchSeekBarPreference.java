@@ -30,7 +30,7 @@ public class TorchSeekBarPreference extends Preference implements SeekBar.OnSeek
     private final String TAG = getClass().getName();
     private static final String SETTINGS_NS = "http://schemas.android.com/apk/res/com.android.settings";
     private static final String ANDROIDNS = "http://schemas.android.com/apk/res/android";
-    private static final int DEFAULT_VALUE = 50;
+    private static final int DEFAULT_VALUE = 80;
 
     private int mMin = 0;
     private int mInterval = 1;

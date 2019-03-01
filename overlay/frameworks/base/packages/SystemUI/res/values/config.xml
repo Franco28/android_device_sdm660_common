@@ -64,6 +64,9 @@
     <!-- Doze: does this device support STATE_DOZE and STATE_DOZE_SUSPEND?  -->
     <bool name="doze_display_state_supported">true</bool>
 
+    <!-- Doze: whether the double tap sensor reports 2D touch coordinates -->
+    <bool name="doze_double_tap_reports_touch_coordinates">true</bool>
+
     <!-- Max visible notification icons -->
       <integer name="config_maxVisibleNotificationIcons">6</integer>
       <integer name="config_maxVisibleNotificationIconsWhenDark">7</integer>

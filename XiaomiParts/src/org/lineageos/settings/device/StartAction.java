@@ -35,7 +35,7 @@ import java.util.Arrays;
 public class StartAction extends IntentService {
 
     private static final String[] CAMERA_PACKAGES = new String[]{"com.android.camera",
-            "com.android.camera2", "com.google.android.GoogleCamera"};
+            "com.android.camera2", "com.google.android.GoogleCamera", "com.google.android.GoogleCameraMin"};
 
     private static StatusBarManager sStatusBarManager;
 

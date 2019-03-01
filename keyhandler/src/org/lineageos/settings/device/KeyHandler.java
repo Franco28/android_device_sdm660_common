@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 The Xiaomi-SDM660 Project
+ * Copyright (C) 2019 The Xiaomi-SDM660 Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ import com.android.internal.os.DeviceKeyHandler;
 public class KeyHandler implements DeviceKeyHandler {
 
     private static final int SCANCODE_JASMINE = 96;
+    private static final int SCANCODE_WAYNE = 766;
     private static final int SCANCODE_CLOVER = 172;
 
     private static int sActionBefore = KeyEvent.ACTION_DOWN;
@@ -44,7 +45,7 @@ public class KeyHandler implements DeviceKeyHandler {
         int scanCode = event.getScanCode();
         int action = event.getAction();
 
-        if (scanCode == SCANCODE_JASMINE || scanCode == SCANCODE_CLOVER) {
+        if (scanCode == SCANCODE_JASMINE || scanCode == SCANCODE_CLOVER || scanCode == SCANCODE_WAYNE) {
             if (sActionBefore != KeyEvent.ACTION_UP) {
                 if (action == KeyEvent.ACTION_UP) {
                     Intent startAction = new Intent()

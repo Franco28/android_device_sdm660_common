@@ -34,22 +34,10 @@
     <string-array name="fpaction_enteries">
         <item>@string/fpaction_expand_np</item>
         <item>@string/fpaction_expand_qs</item>
-        <item>@string/fpaction_assistant</item>
-        <item>@string/fpaction_home</item>
-        <item>@string/fpaction_recent_apps</item>
-        <item>@string/fpaction_media_next</item>
-        <item>@string/fpaction_media_play_pause</item>
-        <item>@string/fpaction_media_previous</item>
     </string-array>
     <string-array name="fpaction_values">
         <item>expnp</item>
         <item>expqs</item>
-        <item>219</item>
-        <item>3</item>
-        <item>187</item>
-        <item>87</item>
-        <item>85</item>
-        <item>88</item>
     </string-array>
 
     <!-- Values for Dirac headset pref -->

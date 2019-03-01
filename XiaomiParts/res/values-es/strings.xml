@@ -54,6 +54,10 @@
     <string name="fpaction_summary">ELija la Acción</string>
     <string name="fpaction_title">Acciones de Huellas Dactilares</string>
 
+    <!-- Values for FP Actions -->
+    <string name="fpaction_expand_np">Expandir Panel de Notificaciones</string>
+    <string name="fpaction_expand_qs">Expadir QS</string>
+
     <!-- Dirac settings -->
     <string name="dirac_title">Mi Sound Enhancer</string>
     <string name="dirac_summary">Optimizar la calidad del audio</string>

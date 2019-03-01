@@ -35,7 +35,7 @@
         android:title="@string/fp_title">
 
         <SwitchPreference
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:key="fpaction_enabled"
             android:title="@string/fpaction_enabled" />
 
@@ -61,7 +61,7 @@
         android:title="@string/torch_title">
 
         <org.lineageos.settings.device.TorchSeekBarPreference
-            android:defaultValue="100"
+            android:defaultValue="80"
             android:key="torch_brightness"
             android:max="255"
             android:min="1"
@@ -74,7 +74,7 @@
         android:title="@string/vibration_title">
 
         <org.lineageos.settings.device.VibrationSeekBarPreference
-            android:defaultValue="80"
+            android:defaultValue="50"
             android:key="vibration_strength"
             android:max="100"
             android:min="1"
@@ -102,7 +102,7 @@
         android:title="@string/spectrum_profile_title">
 
         <ListPreference
-            android:defaultValue="0"
+            android:defaultValue="1"
             android:dialogTitle="@string/spectrum_dialogTitle"
             android:entries="@array/spectrum_profiles"
             android:entryValues="@array/spectrum_values"
