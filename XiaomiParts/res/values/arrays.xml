@@ -31,15 +31,6 @@
         <item>5</item>
     </string-array>
 
-    <string-array name="fpaction_enteries">
-        <item>@string/fpaction_expand_np</item>
-        <item>@string/fpaction_expand_qs</item>
-    </string-array>
-    <string-array name="fpaction_values">
-        <item>expnp</item>
-        <item>expqs</item>
-    </string-array>
-
     <!-- Values for Dirac headset pref -->
     <string-array name="dirac_headset_pref_entries" translatable="false">
         <item>@string/dirac_headset_default</item>

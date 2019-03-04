@@ -32,7 +32,7 @@ public class VibrationSeekBarPreference extends Preference implements SeekBar.On
     private final String TAG = getClass().getName();
     private static final String SETTINGS_NS = "http://schemas.android.com/apk/res/com.android.settings";
     private static final String ANDROIDNS = "http://schemas.android.com/apk/res/android";
-    private static final int DEFAULT_VALUE = 50;
+    private static final int DEFAULT_VALUE = 70;
 
     private Vibrator mVibrator;
     private int mMin = 0;

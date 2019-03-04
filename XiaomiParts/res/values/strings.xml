@@ -49,19 +49,6 @@
     <string name="spectrum_balance">Balance</string>
     <string name="spectrum_extreme_battery">Extreme Battery</string>
 
-    <!-- FP Actions -->
-    <string name="fp_title">Fingerprint</string>
-    <string name="fpaction_enabled">Enable custom fingerprint actions</string>
-    <string name="fpshutter_summary">Trigger the camera if it is active</string>
-    <string name="fp_shutter">Fingerprint Shutter</string>
-    <string name="fpaction_dialogTitle">Action</string>
-    <string name="fpaction_summary">Choose Action</string>
-    <string name="fpaction_title">Fingerprint Actions</string>
-
-    <!-- Values for FP Actions -->
-    <string name="fpaction_expand_np">Expand Notification Panel</string>
-    <string name="fpaction_expand_qs">Expand QS</string>
-
     <string name="audio_title">Audio</string>
 
     <!-- Dirac settings -->

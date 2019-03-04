@@ -45,19 +45,6 @@
     <string name="spectrum_balance">Balance</string>
     <string name="spectrum_extreme_battery">Batería Extrema</string>
 
-    <!-- FP Actions -->
-    <string name="fp_title">Huella Dactilar</string>
-    <string name="fpaction_enabled">Habilitar acciones de huellas dactilares personalizadas</string>
-    <string name="fpshutter_summary">Dispara la cámara si está activa.</string>
-    <string name="fp_shutter">Obturador de huellas dactilares</string>
-    <string name="fpaction_dialogTitle">Acción</string>
-    <string name="fpaction_summary">ELija la Acción</string>
-    <string name="fpaction_title">Acciones de Huellas Dactilares</string>
-
-    <!-- Values for FP Actions -->
-    <string name="fpaction_expand_np">Expandir Panel de Notificaciones</string>
-    <string name="fpaction_expand_qs">Expadir QS</string>
-
     <!-- Dirac settings -->
     <string name="dirac_title">Mi Sound Enhancer</string>
     <string name="dirac_summary">Optimizar la calidad del audio</string>

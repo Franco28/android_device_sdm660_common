@@ -49,24 +49,6 @@
     <string name="spectrum_balance">Balanceado</string>
     <string name="spectrum_extreme_battery">Bateria extrema</string>
 
-    <!-- FP Actions -->
-    <string name="fp_title">Sensor de impressão digital</string>
-    <string name="fpaction_enabled">Habilitar ações por impressão digital</string>
-    <string name="fpshutter_summary">Tire fotos se a câmera estiver ativa</string>
-    <string name="fp_shutter">Tirar fotos por impressão digital</string>
-    <string name="fpaction_dialogTitle">Ação</string>
-    <string name="fpaction_summary">Escolha a ação</string>
-    <string name="fpaction_title">Ações por impressão digital</string>
-
-    <!-- Values for FP Actions -->
-    <string name="fpaction_expand_np">Expandir painel de notificações</string>
-    <string name="fpaction_expand_qs">Expandir atalhos rápidos</string>
-    <string name="fpaction_home">Tela inicial</string>
-    <string name="fpaction_media_next">Próxima mídia</string>
-    <string name="fpaction_media_play_pause">Tocar/pausar mídia</string>
-    <string name="fpaction_media_previous">Mídia anterior</string>
-    <string name="fpaction_recent_apps">Aplicativos recentes</string>
-
     <string name="audio_title">Áudio</string>
 
     <!-- Dirac settings -->

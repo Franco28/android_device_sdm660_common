@@ -38,7 +38,7 @@ public class BootReceiver extends BroadcastReceiver {
         FileUtils.setValue(TORCH_2_BRIGHTNESS_PATH, sharedPrefs.getInt(
                 DeviceSettings.PREF_TORCH_BRIGHTNESS, 100));
         FileUtils.setValue(VIBRATION_STRENGTH_PATH, sharedPrefs.getInt(
-                DeviceSettings.PREF_VIBRATION_STRENGTH, 50) / 100.0 *
+                DeviceSettings.PREF_VIBRATION_STRENGTH, 80) / 100.0 *
                 (DeviceSettings.MAX_VIBRATION - DeviceSettings.MIN_VIBRATION) +
                 DeviceSettings.MIN_VIBRATION);
 

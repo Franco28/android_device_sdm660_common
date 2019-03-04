@@ -446,6 +446,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	$(PLATFORM_PATH)/sysconfig/google_build.xml:system/etc/sysconfig/google_build.xml \
 	$(PLATFORM_PATH)/sysconfig/nexus.xml:system/etc/sysconfig/nexus.xml \
+	$(PLATFORM_PATH)/sysconfig/pixel.xml:system/etc/sysconfig/pixel.xml \
+	$(PLATFORM_PATH)/sysconfig/google.xml:system/etc/sysconfig/google.xml \
 	$(PLATFORM_PATH)/sysconfig/pixel_2017.xml:system/etc/sysconfig/pixel_2017.xml \
 	$(PLATFORM_PATH)/sysconfig/pixel_2017_exclusive.xml:system/etc/sysconfig/pixel_2017_exclusive.xml 
 
@@ -465,9 +467,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	GoogleCamera
 
-# KeyHandler
-PRODUCT_PACKAGES += \
-	org.lineageos.keyhandler
+#QTI performance
+PRODUCT_BOOT_JARS += \
+    QPerformance \
+    UxPerformance 
 
 # Wi-Fi Display
 PRODUCT_BOOT_JARS += \

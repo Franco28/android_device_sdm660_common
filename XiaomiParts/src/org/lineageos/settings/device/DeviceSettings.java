@@ -30,9 +30,6 @@ public class DeviceSettings extends PreferenceFragment implements
 
     private static final String PREF_ENABLE_HAL3 = "hal3";
     private static final String PREF_ENABLE_EIS = "eis";
-    final static String PREF_ENABLE_FPACTION = "fpaction_enabled";
-    final static String PREF_FP_SHUTTER = "fp_shutter";
-    final static String PREF_FPACTION = "fpaction";
     final static String PREF_TORCH_BRIGHTNESS = "torch_brightness";
     final static String PREF_VIBRATION_STRENGTH = "vibration_strength";
     private static final String CATEGORY_DISPLAY = "display";
@@ -60,9 +57,6 @@ public class DeviceSettings extends PreferenceFragment implements
 
     private SwitchPreference mEnableHAL3;
     private SwitchPreference mEnableEIS;
-    private SwitchPreference mEnableFpAction;
-    private SwitchPreference mFpShutter;
-    private ListPreference mFpAction;
     private TorchSeekBarPreference mTorchBrightness;
     private VibrationSeekBarPreference mVibrationStrength;
     private ListPreference mSPECTRUM;
@@ -81,16 +75,6 @@ public class DeviceSettings extends PreferenceFragment implements
         mEnableEIS = (SwitchPreference) findPreference(PREF_ENABLE_EIS);
         mEnableEIS.setChecked(FileUtils.getProp(EIS_SYSTEM_PROPERTY, false));
         mEnableEIS.setOnPreferenceChangeListener(this);
-
-        mEnableFpAction = (SwitchPreference) findPreference(PREF_ENABLE_FPACTION);
-        mEnableFpAction.setOnPreferenceChangeListener(this);
-
-        mFpShutter = (SwitchPreference) findPreference(PREF_FP_SHUTTER);
-        mFpShutter.setOnPreferenceChangeListener(this);
-
-        mFpAction = (ListPreference) findPreference(PREF_FPACTION);
-        mFpAction.setSummary(mFpAction.getEntry());
-        mFpAction.setOnPreferenceChangeListener(this);
 
         mTorchBrightness = (TorchSeekBarPreference) findPreference(PREF_TORCH_BRIGHTNESS);
         mTorchBrightness.setEnabled(FileUtils.fileWritable(TORCH_1_BRIGHTNESS_PATH) &&
@@ -148,15 +132,6 @@ public class DeviceSettings extends PreferenceFragment implements
 
             case PREF_ENABLE_EIS:
                 FileUtils.setProp(EIS_SYSTEM_PROPERTY, (Boolean) value);
-                break;
-
-            case PREF_ENABLE_FPACTION:
-                mFpAction.setEnabled((Boolean) value);
-                break;
-
-            case PREF_FPACTION:
-                mFpAction.setValue((String) value);
-                mFpAction.setSummary(mFpAction.getEntry());
                 break;
 
             case PREF_TORCH_BRIGHTNESS:
