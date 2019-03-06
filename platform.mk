@@ -35,15 +35,16 @@ DEVICE_PACKAGE_OVERLAYS := device/xiaomi/sdm660-common/overlay
 
 # Build Fingerprint
 PRODUCT_BUILD_PROP_OVERRIDES += \
-		PRIVATE_BUILD_DESC="crosshatch-user 9 PQ2A.190205.001 5163636 release-keys"
+		PRIVATE_BUILD_DESC="crosshatch-user 9 PQ2A.190305.002 5240760 release-keys"
 
-BUILD_FINGERPRINT := google/crosshatch/crosshatch:9/PQ2A.190205.001/5163636:user/release-keys
+BUILD_FINGERPRINT := google/crosshatch/crosshatch:9/PQ2A.190305.002/5240760:user/release-keys
 
 # Platform properties
 $(call inherit-product, $(PLATFORM_PATH)/platform_prop.mk)
 
 # Alipay
 PRODUCT_PACKAGES += \
+  IFAAService \
   org.ifaa.android.manager
 
 PRODUCT_BOOT_JARS += \
@@ -250,7 +251,8 @@ PRODUCT_PACKAGES += \
 
 # MSM IRQ Balancer configuration file for SDM660
 PRODUCT_COPY_FILES += \
-	$(PLATFORM_PATH)/configs/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
+	$(PLATFORM_PATH)/configs/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf \
+	$(PLATFORM_PATH)/configs/msm_irqbalance_sdm630.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance_sdm630.conf
 
 # Net
 PRODUCT_PACKAGES += \
@@ -459,6 +461,10 @@ PRODUCT_COPY_FILES += $(PLATFORM_PATH)/configs/whitelistedapps.xml:$(TARGET_COPY
 PRODUCT_PACKAGES += \
 	XiaomiParts
 
+# ThermalController app
+PRODUCT_PACKAGES += \
+	ThermalController
+
 # KCal
 PRODUCT_PACKAGES += \
 	KCal
@@ -466,11 +472,6 @@ PRODUCT_PACKAGES += \
 # GCam
 PRODUCT_PACKAGES += \
 	GoogleCamera
-
-#QTI performance
-PRODUCT_BOOT_JARS += \
-    QPerformance \
-    UxPerformance 
 
 # Wi-Fi Display
 PRODUCT_BOOT_JARS += \

@@ -73,12 +73,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.camera.preview.ubwc=0 \
 	persist.vendor.qti.telephony.vt_cam_interface=1 \
-	vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineage.snap \
-	vendor.camera.aux.packagelist2=com.google.android.GoogleCameraTele,com.google.android.GoogleCameraWide,com.bsgmod.camera \
-	vendor.camera.aux.packagelist3=com.android.systemui,com.huaqin.factory,com.mi.AutoTest,com.google.android.GoogleCamera \
-	camera.hal1.packagelist=com.skype.raider,com.whatsapp,com.android.camera,com.facebook.katana \
-	camera.hal1.packagelist2=,com.gbwhatsapp,com.gbinsta
-
+	vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.qualcomm.qti.qmmi,org.cyanogenmod.snap \
+	camera.hal1.packagelist=com.whatsapp,com.android.camera,com.android.camera2,com.instagram.android \
+	vendor.camera.hal1.packagelist= com.whatsapp,com.android.camera,com.android.camera2,com.instagram.android
 
 # Charger
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -113,18 +110,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	vendor.gralloc.enable_fb_ubwc=1 \
 	debug.sf.enable_hwc_vds=1 \
 	debug.sf.hw=1 \
+	debug.hwui.renderer=skiagl \
 	persist.hwc.enable_vds=1 \
 	ro.opengles.version=196610 \
 	sdm.debug.disable_skip_validate=1 \
-	vendor.display.enable_default_color_mode=0
+	vendor.display.enable_default_color_mode=0 \
+        ro.sf.lcd_density=420
 
 # DPM
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.dpm.feature=1
-
-# DPI Setting
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=440
 
 # DRM
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -202,7 +197,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.data.netmgrd.qos.enable=true \
 	persist.data.wda.enable=true \
 	persist.vendor.radio.apm_sim_not_pwdn=1 \
-	persist.radio.atfwd.start=true \
+	persist.vendor.radio.atfwd.start=true \
 	persist.radio.data_con_rprt=1 \
 	persist.rmnet.data.enable=true \
 	persist.vendor.radio.sib16_support=1 \
@@ -279,6 +274,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.vendor.qti.config.zram=true
 
+# USB debugging at boot
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.sys.usb.config=mtp,adb
+	ro.adb.secure=0
+	ro.secure=0
+	ro.debuggable=1
+
 #QTI Performance
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.enable_prefetch=1 \
@@ -287,10 +289,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.perf.iop_v3.enable=1 \
     ro.vendor.at_library=libqti-at.so \
     persist.vendor.qti.games.gt.prof=1
-
-# USB debugging at boot
-PRODUCT_PROPERTY_OVERRIDES += \
-	persist.sys.usb.config=mtp,adb
-	ro.adb.secure=0
-	ro.secure=0
-	ro.debuggable=1
