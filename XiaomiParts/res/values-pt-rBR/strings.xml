@@ -26,10 +26,6 @@
     <!-- KCal -->
     <string name="device_kcal_title">Calibração de cores da tela</string>
 
-    <!-- Ambient Display -->
-    <string name="ambient_display_xiaomi">Notificações ambiente</string>
-    <string name="advanced_doze_summary">Configure as notificações ambiente</string>
-
     <string name="torch_title">Lanterna</string>
     <string name="torch_brightness_title">Brilho</string>
     <string name="vibration_title">Resposta tátil</string>

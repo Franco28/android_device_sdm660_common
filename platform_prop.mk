@@ -74,8 +74,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.camera.preview.ubwc=0 \
 	persist.vendor.qti.telephony.vt_cam_interface=1 \
 	vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.qualcomm.qti.qmmi,org.cyanogenmod.snap \
-	camera.hal1.packagelist=com.whatsapp,com.android.camera,com.android.camera2,com.instagram.android \
-	vendor.camera.hal1.packagelist= com.whatsapp,com.android.camera,com.android.camera2,com.instagram.android
+	camera.hal1.packagelist=com.android.camera,com.android.camera2 \
+	vendor.camera.hal1.packagelist=com.android.camera,com.android.camera2
 
 # Charger
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -270,6 +270,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.bluetooth.wipower=true \
 	persist.spectrum.profile=0
 
+#QTI Performance
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.enable_prefetch=1 \
+    vendor.iop.enable_uxe=1 \
+    vendor.iop.enable_prefetch_ofr=1 \
+    vendor.perf.iop_v3.enable=1 \
+    ro.vendor.at_library=libqti-at.so \
+    persist.vendor.qti.games.gt.prof=1
+
 # ZRAM
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.vendor.qti.config.zram=true
@@ -281,11 +290,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.secure=0
 	ro.debuggable=1
 
-#QTI Performance
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.enable_prefetch=1 \
-    vendor.iop.enable_uxe=1 \
-    vendor.iop.enable_prefetch_ofr=1 \
-    vendor.perf.iop_v3.enable=1 \
-    ro.vendor.at_library=libqti-at.so \
-    persist.vendor.qti.games.gt.prof=1
