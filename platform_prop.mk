@@ -74,8 +74,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.camera.preview.ubwc=0 \
 	persist.vendor.qti.telephony.vt_cam_interface=1 \
 	vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.qualcomm.qti.qmmi,org.cyanogenmod.snap \
-	camera.hal1.packagelist=com.android.camera,com.android.camera2 \
-	vendor.camera.hal1.packagelist=com.android.camera,com.android.camera2
+	camera.hal1.packagelist=com.android.camera \
+	vendor.camera.hal1.packagelist=com.android.camera
 
 # Charger
 PRODUCT_PROPERTY_OVERRIDES += \
